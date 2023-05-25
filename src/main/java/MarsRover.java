@@ -25,6 +25,9 @@ public class MarsRover {
                 if (direction.facingTo().equals("E")) {
                     XPosition += 1;
                 }
+                if (direction.facingTo().equals("W")) {
+                    XPosition -= 1;
+                }
                 YPosition = moveYAxis(YPosition);
             }
 
