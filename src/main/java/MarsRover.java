@@ -2,6 +2,7 @@ public class MarsRover {
 
     public static final String TURN_RIGHT = "R";
     public static final String TURN_LEFT = "L";
+    public static final String MOVE_FORWARD = "M";
     private final Direction direction;
 
     public MarsRover() {
@@ -21,13 +22,13 @@ public class MarsRover {
             }
 
         }
-        if (commands.equals("M")) {
+        if (commands.equals(MOVE_FORWARD)) {
             coordinates = "0:1:";
         }
-        if (commands.equals("MM")) {
+        if (commands.equals(MOVE_FORWARD + MOVE_FORWARD)) {
             coordinates = "0:2:";
         }
-        if (commands.equals("MMM")) {
+        if (commands.equals(MOVE_FORWARD+MOVE_FORWARD+MOVE_FORWARD)) {
             coordinates = "0:3:";
         }
 
