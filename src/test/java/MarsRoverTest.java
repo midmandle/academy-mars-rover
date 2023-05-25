@@ -28,5 +28,13 @@ public class MarsRoverTest {
 
         assertEquals("0:0:S", output);
     }
+    @Test
+    public void should_return_0_0_W_when_command_RRR_is_given() {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run("RRR");
+
+        assertEquals("0:0:W", output);
+    }
 
 }
