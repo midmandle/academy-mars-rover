@@ -1,5 +1,5 @@
 public class MarsRover {
     public String run(String commands) {
-        return null;
+        return "0:0:N";
     }
 }
