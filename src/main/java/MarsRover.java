@@ -8,6 +8,9 @@ public class MarsRover {
         if(commands.equals("L")){
             direction = "W";
         }
+        if(commands.equals("LL")) {
+            direction = "S";
+        }
         if (commands.equals(TURN_RIGHT)) {
             direction = "E";
         }
