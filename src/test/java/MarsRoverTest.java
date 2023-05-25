@@ -27,4 +27,16 @@ public class MarsRoverTest {
 
         assertEquals(expectedOutput, output);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "L, 0:0:W",
+    })
+    public void should_rotate_left_when_command_is_L(String input, String expectedOutput) {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run(input);
+
+        assertEquals(expectedOutput, output);
+    }
 }
