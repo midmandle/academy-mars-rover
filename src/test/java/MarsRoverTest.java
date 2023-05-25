@@ -58,6 +58,7 @@ public class MarsRoverTest {
     @ParameterizedTest
     @CsvSource({
             "M, 0:1:N",
+            "MM, 0:2:N",
     })
     void should_be_able_to_move(String input, String expectedOutput) {
         MarsRover rover = new MarsRover();
