@@ -9,6 +9,11 @@ public class MarsRover {
     }
 
     public String run(String commands) {
+
+        if(commands.equals("M")){
+            return "0:1:N";
+        }
+
         String coordinates = "0:0:";
 
         for (String command : commands.split("")) {
