@@ -11,6 +11,9 @@ public class MarsRover {
         if(commands.equals("LL")) {
             direction = "S";
         }
+        if(commands.equals("LLL")) {
+            direction = "E";
+        }
         if (commands.equals(TURN_RIGHT)) {
             direction = "E";
         }
