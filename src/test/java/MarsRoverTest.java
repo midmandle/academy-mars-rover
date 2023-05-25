@@ -41,4 +41,16 @@ public class MarsRoverTest {
 
         assertEquals(expectedOutput, output);
     }
+    @ParameterizedTest
+    @CsvSource({
+            "LLR, 0:0:W",
+    })
+    void should_be_able_to_turn_left_and_then_right(String input, String expectedOutput) {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run(input);
+
+        assertEquals(expectedOutput, output);
+    }
+
 }
