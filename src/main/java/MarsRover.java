@@ -10,19 +10,19 @@ public class MarsRover {
 
     public String run(String commands) {
 
-        if(commands.equals("M")){
-            return "0:1:N";
-        }
-
         String coordinates = "0:0:";
 
         for (String command : commands.split("")) {
-            if(command.equals(TURN_LEFT)) {
+            if (command.equals(TURN_LEFT)) {
                 direction.turnLeft();
             }
-            if(command.equals(TURN_RIGHT)) {
+            if (command.equals(TURN_RIGHT)) {
                 direction.turnRight();
             }
+
+        }
+        if (commands.equals("M")) {
+            coordinates = "0:1:";
         }
 
         return coordinates + direction.facingTo();
