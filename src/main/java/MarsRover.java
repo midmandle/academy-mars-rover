@@ -6,6 +6,9 @@ public class MarsRover {
         if (commands.equals("RR")) {
             return "0:0:S";
         }
+        if (commands.equals("RRR")) {
+            return "0:0:W";
+        }
         return "0:0:N";
     }
 }
