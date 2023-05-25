@@ -32,6 +32,7 @@ public class MarsRoverTest {
     @CsvSource({
             "L, 0:0:W",
             "LL, 0:0:S",
+            "LLL, 0:0:E",
     })
     public void should_rotate_left_when_command_is_L(String input, String expectedOutput) {
         MarsRover rover = new MarsRover();
