@@ -45,6 +45,7 @@ public class MarsRoverTest {
     @CsvSource({
             "LLR, 0:0:W",
             "RRL, 0:0:E",
+            "RLLL, 0:0:S",
     })
     void should_be_able_to_turn_both_left_and_right(String input, String expectedOutput) {
         MarsRover rover = new MarsRover();
