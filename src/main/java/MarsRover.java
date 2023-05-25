@@ -2,54 +2,25 @@ public class MarsRover {
 
     public static final String TURN_RIGHT = "R";
     public static final String TURN_LEFT = "L";
+    private final Direction direction;
+
+    public MarsRover() {
+        this.direction = new Direction();
+    }
 
     public String run(String commands) {
         String coordinates = "0:0:";
-        Direction direction = Direction.NORTH;
 
         for (String command : commands.split("")) {
             if(command.equals(TURN_LEFT)) {
-                direction = turnLeft(direction);
+                direction.turnLeft();
             }
             if(command.equals(TURN_RIGHT)) {
-                direction = turnRight(direction);
+                direction.turnRight();
             }
         }
 
-        return coordinates + direction.getValue();
+        return coordinates + direction.facingTo();
     }
 
-    private static Direction turnLeft(Direction currentDirection){
-        switch(currentDirection) {
-            case WEST -> {
-                return Direction.SOUTH;
-            }
-            case SOUTH -> {
-                return Direction.EAST;
-            }
-            case EAST -> {
-                return Direction.NORTH;
-            }
-            default ->  {
-                return Direction.WEST;
-            }
-        }
-    }
-
-    private static Direction turnRight(Direction currentDirection){
-        switch (currentDirection) {
-            case EAST -> {
-                return Direction.SOUTH;
-            }
-            case SOUTH -> {
-                return Direction.WEST;
-            }
-            case WEST -> {
-                return Direction.NORTH;
-            }
-            default -> {
-                return Direction.EAST;
-            }
-        }
-    }
 }

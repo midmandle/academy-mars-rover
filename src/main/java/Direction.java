@@ -1,12 +1,35 @@
-public enum Direction {
-    WEST("W"), SOUTH("S"), EAST("E"), NORTH("N");
-    private String value;
+public class Direction {
 
-    public String getValue() {
-        return value;
+    private final String NORTH = "N";
+    private final String EAST = "E";
+    private final String SOUTH = "S";
+    private final String WEST = "W";
+
+    private String currentDirection;
+
+    public Direction() {
+        this.currentDirection = NORTH;
     }
 
-    Direction(String value) {
-        this.value = value;
+    public void turnLeft(){
+        switch (currentDirection) {
+            case NORTH -> currentDirection = WEST;
+            case WEST -> currentDirection = SOUTH;
+            case SOUTH -> currentDirection = EAST;
+            default -> currentDirection = NORTH;
+        }
+    }
+
+    public void turnRight(){
+        switch (currentDirection) {
+            case NORTH -> currentDirection = EAST;
+            case EAST -> currentDirection = SOUTH;
+            case SOUTH -> currentDirection = WEST;
+            default -> currentDirection = NORTH;
+        }
+    }
+
+    public String facingTo() {
+        return currentDirection;
     }
 }
