@@ -5,6 +5,9 @@ public class MarsRover {
     public String run(String commands) {
         String coordinates = "0:0:";
         String direction = "N";
+        if(commands.equals("L")){
+            direction = "W";
+        }
         if (commands.equals(TURN_RIGHT)) {
             direction = "E";
         }
