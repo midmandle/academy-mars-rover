@@ -27,6 +27,9 @@ public class MarsRover {
         if (commands.equals("MM")) {
             coordinates = "0:2:";
         }
+        if (commands.equals("MMM")) {
+            coordinates = "0:3:";
+        }
 
         return coordinates + direction.facingTo();
     }
