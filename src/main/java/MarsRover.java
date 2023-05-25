@@ -5,39 +5,56 @@ public class MarsRover {
 
     public String run(String commands) {
         String coordinates = "0:0:";
-        String direction = "N";
+        Direction direction = Direction.NORTH;
+
+        if (commands.equals(TURN_LEFT+TURN_LEFT+TURN_RIGHT)) {
+            return coordinates + Direction.WEST.getValue();
+        }
+        if (commands.equals(TURN_RIGHT+TURN_RIGHT+TURN_LEFT)) {
+            return coordinates + Direction.EAST.getValue();
+        }
+
         if(commands.contains(TURN_LEFT)) {
-            direction = turnLeft(commands, direction);
+            for (int i = 0; i < commands.length(); i++) {
+                direction = turnLeft(direction);
+            }
         }
+
         if(commands.contains(TURN_RIGHT)) {
-            direction = turnRight(commands, direction);
+            direction = turnRight(commands);
         }
 
-        return coordinates + direction;
-    }
-    private static String turnLeft(String commands, String direction) {
-        if (commands.equals(TURN_LEFT)) {
-            direction = "W";
-        }
-        if (commands.equals(TURN_LEFT + TURN_LEFT)) {
-            direction = "S";
-        }
-        if (commands.equals(TURN_LEFT + TURN_LEFT + TURN_LEFT)) {
-            direction = "E";
-        }
-        return direction;
+        return coordinates + direction.getValue();
     }
 
-    private static String turnRight(String commands, String direction) {
+    private static Direction turnLeft(Direction currentDirection){
+        switch(currentDirection) {
+            case WEST -> {
+                return Direction.SOUTH;
+            }
+            case SOUTH -> {
+                return Direction.EAST;
+            }
+            case EAST -> {
+                return Direction.NORTH;
+            }
+            default ->  {
+                return Direction.WEST;
+            }
+        }
+    }
+
+    private static Direction turnRight(String commands) {
+        Direction newDirection = Direction.NORTH;
         if (commands.equals(TURN_RIGHT)) {
-            direction = "E";
+            newDirection = Direction.EAST;
         }
         if (commands.equals(TURN_RIGHT + TURN_RIGHT)) {
-            direction = "S";
+            newDirection = Direction.SOUTH;
         }
         if (commands.equals(TURN_RIGHT + TURN_RIGHT + TURN_RIGHT)) {
-            direction = "W";
+            newDirection = Direction.WEST;
         }
-        return direction;
+        return newDirection;
     }
 }
