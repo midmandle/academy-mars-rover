@@ -7,24 +7,11 @@ public class MarsRover {
         String coordinates = "0:0:";
         Direction direction = Direction.NORTH;
 
-        if (commands.equals(TURN_LEFT+TURN_LEFT+TURN_RIGHT)) {
-            return coordinates + Direction.WEST.getValue();
-        }
-        if (commands.equals(TURN_RIGHT+TURN_RIGHT+TURN_LEFT)) {
-            return coordinates + Direction.EAST.getValue();
-        }
-        if (commands.equals(TURN_RIGHT+TURN_LEFT+TURN_LEFT+TURN_LEFT)) {
-            return coordinates + Direction.SOUTH.getValue();
-        }
-
-        if(commands.contains(TURN_LEFT)) {
-            for (int i = 0; i < commands.length(); i++) {
+        for (String command : commands.split("")) {
+            if(command.equals(TURN_LEFT)) {
                 direction = turnLeft(direction);
             }
-        }
-
-        if(commands.contains(TURN_RIGHT)) {
-            for (int i = 0; i < commands.length(); i++) {
+            if(command.equals(TURN_RIGHT)) {
                 direction = turnRight(direction);
             }
         }
