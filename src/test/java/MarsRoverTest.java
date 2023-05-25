@@ -19,4 +19,13 @@ public class MarsRoverTest {
 
         assertEquals("0:0:E", output);
     }
+
+    @Test
+    public void should_return_0_0_E_when_command_RR_is_given() {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run("RR");
+
+        assertEquals("0:0:S", output);
+    }
 }
