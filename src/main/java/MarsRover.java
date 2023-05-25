@@ -23,7 +23,7 @@ public class MarsRover {
             }
             if (command.equals(MOVE_FORWARD)) {
                 if (direction.facingTo().equals("E")) {
-                    XPosition = 1;
+                    XPosition += 1;
                 }
                 YPosition = moveYAxis(YPosition);
             }
