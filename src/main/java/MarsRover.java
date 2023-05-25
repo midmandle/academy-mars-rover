@@ -21,7 +21,9 @@ public class MarsRover {
         }
 
         if(commands.contains(TURN_RIGHT)) {
-            direction = turnRight(commands);
+            for (int i = 0; i < commands.length(); i++) {
+                direction = turnRight(direction);
+            }
         }
 
         return coordinates + direction.getValue();
@@ -44,17 +46,20 @@ public class MarsRover {
         }
     }
 
-    private static Direction turnRight(String commands) {
-        Direction newDirection = Direction.NORTH;
-        if (commands.equals(TURN_RIGHT)) {
-            newDirection = Direction.EAST;
+    private static Direction turnRight(Direction currentDirection){
+        switch (currentDirection) {
+            case EAST -> {
+                return Direction.SOUTH;
+            }
+            case SOUTH -> {
+                return Direction.WEST;
+            }
+            case WEST -> {
+                return Direction.NORTH;
+            }
+            default -> {
+                return Direction.EAST;
+            }
         }
-        if (commands.equals(TURN_RIGHT + TURN_RIGHT)) {
-            newDirection = Direction.SOUTH;
-        }
-        if (commands.equals(TURN_RIGHT + TURN_RIGHT + TURN_RIGHT)) {
-            newDirection = Direction.WEST;
-        }
-        return newDirection;
     }
 }
