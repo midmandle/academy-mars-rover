@@ -10,8 +10,8 @@ public class MarsRover {
     }
 
     public String run(String commands) {
-
-        String coordinates = "0:0:";
+        int YPosition = 0;
+        String coordinates = "0:%d:%s";
 
         for (String command : commands.split("")) {
             if (command.equals(TURN_LEFT)) {
@@ -20,19 +20,10 @@ public class MarsRover {
             if (command.equals(TURN_RIGHT)) {
                 direction.turnRight();
             }
-
-        }
-        if (commands.equals(MOVE_FORWARD)) {
-            coordinates = "0:1:";
-        }
-        if (commands.equals(MOVE_FORWARD + MOVE_FORWARD)) {
-            coordinates = "0:2:";
-        }
-        if (commands.equals(MOVE_FORWARD+MOVE_FORWARD+MOVE_FORWARD)) {
-            coordinates = "0:3:";
+            if (command.equals(MOVE_FORWARD)) YPosition++;
         }
 
-        return coordinates + direction.facingTo();
+        return String.format(coordinates, YPosition, direction.facingTo());
     }
 
 }

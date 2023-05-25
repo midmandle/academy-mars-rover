@@ -59,9 +59,23 @@ public class MarsRoverTest {
     @CsvSource({
             "M, 0:1:N",
             "MM, 0:2:N",
-            "MMM, 0:3:N",
+            "MMM, 0:3:N"
     })
-    void should_be_able_to_move(String input, String expectedOutput) {
+    void should_be_able_to_move_north(String input, String expectedOutput) {
+        MarsRover rover = new MarsRover();
+
+        String output = rover.run(input);
+
+        assertEquals(expectedOutput, output);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "MMMRRM, 0:2:S",
+            "MMMRRMM, 0:1:S",
+            "MMMRRMMM, 0:0:S",
+    })
+    void should_be_able_to_move_south(String input, String expectedOutput) {
         MarsRover rover = new MarsRover();
 
         String output = rover.run(input);
