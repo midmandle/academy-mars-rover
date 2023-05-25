@@ -20,10 +20,22 @@ public class MarsRover {
             if (command.equals(TURN_RIGHT)) {
                 direction.turnRight();
             }
-            if (command.equals(MOVE_FORWARD)) YPosition++;
+            if (command.equals(MOVE_FORWARD)) {
+                YPosition = moveYAxis(YPosition);
+            }
         }
 
         return String.format(coordinates, YPosition, direction.facingTo());
+    }
+
+    private int moveYAxis(int YPosition) {
+        if(direction.facingTo().equals("N")) {
+            YPosition++;
+        }
+        if(direction.facingTo().equals("S")){
+            YPosition = YPosition - 1;
+        }
+        return YPosition;
     }
 
 }
